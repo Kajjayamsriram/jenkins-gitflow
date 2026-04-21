@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+    tools {
+        maven 'mymaven'
+    }
+    environment {
+        version = '8.6.10'
+    }
+    stages {
+        stage ('code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Kajjayamsriram/jenkins-gitflow.git'
+            }
+        }
+        stage ('build') {
+            steps {
+                sh "mvn clean install"
+            }
+        }
+        stage ('artifact') {
+            steps {
+                nexusArtifactUploader artifacts: [[artifactId: 'myweb', classifier: '', file: 'target/myweb-8.7.1.war', type: 'war']], credentialsId: 'nexus-id', groupId: 'in.javahome', nexusUrl: '13.221.165.215:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'prod-ecom', version: '8.7.1'
+            }
+        }
+        stage ('deploy') {
+            input {
+                message "Please grant your approval for this release/v1.1 to main branch"
+                submitter "john"
+            }
+            steps {
+                deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'tomcat-auth', path: '', url: 'http://98.82.189.190:8080')], contextPath: 'v-ecom', war: 'target/*.war'
+            }
+        }
+    }
+}
