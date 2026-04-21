@@ -133,7 +133,7 @@ footer{
 
 <header>
 <div class="container" style="display:flex;justify-content:space-between;">
-<h2>Nexus<span style="color:#00aaff">Shop</span></h2>
+<h2>Hello<span style="color:#00aaff">Shop</span></h2>
 <nav>
 <a href="#">Home</a>
 <a href="#">Products</a>
@@ -161,7 +161,7 @@ footer{
 <div class="grid products" id="products"></div>
 </div>
 
-<footer>© 2026 NexusShop</footer>
+<footer>© 20264 HelloShop</footer>
 
 <script>
 const CATEGORIES=["Phones","Laptops","Shoes","Accessories"];
