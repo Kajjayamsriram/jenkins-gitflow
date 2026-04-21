@@ -695,7 +695,7 @@
     <footer>
         <div class="container" style="display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start;justify-content:space-between">
             <div style="max-width:360px">
-                <div style="font-weight:700;font-size:18px">NexusShop</div>
+                <div style="font-weight:700;font-size:18px">HelloShop</div>
                 <p class="muted" style="margin-top:8px">A modern e-commerce demo built with HTML, CSS & JavaScript.</p>
                 <div style="margin-top:14px;display:flex;gap:10px">
                     <a class="icon-btn" href="#" title="Facebook"><em class="fab fa-facebook"></em></a>
