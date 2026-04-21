@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>NexusShop — Premium UI</title>
+<title>NexusShop</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -11,132 +11,119 @@
 <style>
 :root {
     --primary:#0a2540;
-    --accent:#00d4ff;
-    --bg:#fff;
+    --accent:#00aaff;
+    --bg:#ffffff;
+    --muted:#777;
 }
 
-/* GLOBAL */
+/* BASE */
 body{
     margin:0;
     font-family:Inter;
-    background:var(--bg);
+    background:#f6f9fc;
+    color:var(--primary);
 }
-button,a{transition:.2s}
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
 
-/* HEADER GLASS */
+/* HEADER */
 header{
     position:sticky;
     top:0;
-    backdrop-filter:blur(12px);
-    background:rgba(255,255,255,0.6);
-    border-bottom:1px solid rgba(0,0,0,0.05);
-    z-index:100;
+    background:rgba(255,255,255,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid #eee;
 }
-.container{max-width:1200px;margin:auto;padding:10px}
-
-/* NAV */
 nav a{
     margin:0 10px;
-    position:relative;
+    text-decoration:none;
+    color:var(--primary);
+    font-weight:500;
 }
-nav a::after{
-    content:"";
-    position:absolute;
-    bottom:-3px;
-    left:50%;
-    width:0%;
-    height:2px;
-    background:var(--accent);
-    transform:translateX(-50%);
-    transition:.3s;
-}
-nav a:hover::after{width:80%}
+nav a:hover{color:var(--accent);}
 
 /* HERO */
 .hero{
-    height:400px;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
     background:url('https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=1400&q=80') center/cover;
-    position:relative;
+    color:white;
+    padding:80px 20px;
+    text-align:center;
 }
-.hero::before{
-    content:"";
-    position:absolute;
-    width:500px;
-    height:500px;
-    background:radial-gradient(circle, rgba(0,212,255,.4), transparent);
-    top:-100px;
-    left:-100px;
-    animation:float 6s infinite;
-}
-@keyframes float{
-    50%{transform:translateY(30px)}
-}
+.hero h1{font-family:Poppins;font-size:40px;margin:0;}
+.hero p{max-width:600px;margin:10px auto;}
 
 /* BUTTON */
 .btn{
-    padding:10px 20px;
-    border:none;
-    border-radius:50px;
-    background:linear-gradient(135deg,#00d4ff,#0077ff);
+    background:linear-gradient(135deg,#00aaff,#0077ff);
     color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:30px;
     cursor:pointer;
 }
+.btn:hover{opacity:0.9}
 
-/* PRODUCTS */
+/* GRID */
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:20px;
 }
+.categories{
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+}
+.products{
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+}
 
+/* CATEGORY */
+.cat-card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.05);
+    transition:0.2s;
+}
+.cat-card:hover{
+    transform:translateY(-5px);
+}
+
+/* PRODUCT */
 .product{
-    background:#fff;
-    border-radius:12px;
+    background:white;
+    border-radius:10px;
     overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,.05);
-    transition:.3s;
+    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+    transition:0.25s;
 }
 .product:hover{
-    transform:translateY(-10px) scale(1.02);
-    box-shadow:0 20px 50px rgba(0,0,0,.1);
+    transform:translateY(-6px);
 }
 .product img{
     width:100%;
     height:200px;
     object-fit:cover;
-    transition:.4s;
 }
-.product:hover img{transform:scale(1.1)}
+.product-body{
+    padding:12px;
+}
+.price{
+    font-weight:bold;
+}
+.old{
+    text-decoration:line-through;
+    color:var(--muted);
+    font-size:13px;
+}
 
-/* CATEGORY */
-.cat{
-    padding:20px;
+/* FOOTER */
+footer{
     text-align:center;
-    border-radius:10px;
-    background:#fff;
-}
-.cat:hover{
-    background:linear-gradient(135deg,#fff,#f0fbff);
-    border:1px solid rgba(0,212,255,.2);
-}
-
-/* SCROLL BUTTON */
-#scrollTop{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#00d4ff;
-color:white;
-border:none;
-padding:12px;
-border-radius:50%;
-display:none;
-cursor:pointer;
+    padding:20px;
+    color:var(--muted);
 }
 </style>
 </head>
@@ -145,7 +132,7 @@ cursor:pointer;
 
 <header>
 <div class="container" style="display:flex;justify-content:space-between;">
-<h2>Nexus<span style="color:#00d4ff">Shop</span></h2>
+<h2>Nexus<span style="color:#00aaff">Shop</span></h2>
 <nav>
 <a href="#">Home</a>
 <a href="#">Products</a>
@@ -156,105 +143,75 @@ cursor:pointer;
 
 <!-- HERO -->
 <section class="hero">
-<div>
-<h1>Premium Shopping Experience</h1>
+<h1>Modern Shopping Experience</h1>
+<p>Clean, fast and reliable shopping UI your clients will love.</p>
 <button class="btn">Shop Now</button>
-</div>
 </section>
 
 <!-- CATEGORIES -->
 <div class="container">
 <h2>Categories</h2>
-<div class="grid">
-<div class="cat">Phones</div>
-<div class="cat">Laptops</div>
-<div class="cat">Shoes</div>
-<div class="cat">Accessories</div>
-</div>
+<div class="grid categories" id="cats"></div>
 </div>
 
 <!-- PRODUCTS -->
 <div class="container">
 <h2>Products</h2>
-<div class="grid" id="products"></div>
+<div class="grid products" id="products"></div>
 </div>
 
-<button id="scrollTop">↑</button>
+<footer>© 2026 NexusShop</footer>
 
 <script>
+const CATEGORIES=["Phones","Laptops","Shoes","Accessories"];
 
-/* DATA */
 const PRODUCTS=[
-{ id:1,title:"iPhone",img:"https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb" },
-{ id:2,title:"MacBook",img:"https://images.unsplash.com/photo-1593642632823" },
-{ id:3,title:"Shoes",img:"https://images.unsplash.com/photo-1542272604" }
+{
+title:"iPhone 14 Pro",
+price:1099,
+old:1199,
+img:"https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=600&q=80"
+},
+{
+title:"MacBook Pro",
+price:1999,
+img:"https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=600&q=80"
+},
+{
+title:"Apple Watch",
+price:399,
+img:"https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?auto=format&fit=crop&w=600&q=80"
+},
+{
+title:"Nike Shoes",
+price:150,
+img:"https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=600&q=80"
+}
 ];
 
-/* RENDER */
-const grid=document.getElementById("products");
+/* RENDER CATEGORIES */
+const catBox=document.getElementById("cats");
+CATEGORIES.forEach(c=>{
+let el=document.createElement("div");
+el.className="cat-card";
+el.innerHTML=c;
+catBox.appendChild(el);
+});
 
+/* RENDER PRODUCTS */
+const prodBox=document.getElementById("products");
 PRODUCTS.forEach(p=>{
 let el=document.createElement("div");
 el.className="product";
 el.innerHTML=`
 <img src="${p.img}">
-<div style="padding:10px">
+<div class="product-body">
 <h4>${p.title}</h4>
-<button class="btn add" data-id="${p.id}">Add to Cart</button>
+<div class="price">$${p.price} ${p.old?`<span class="old">$${p.old}</span>`:''}</div>
+<button class="btn">Add to Cart</button>
 </div>`;
-grid.appendChild(el);
+prodBox.appendChild(el);
 });
-
-/* CART ANIMATION */
-document.querySelectorAll(".add").forEach(btn=>{
-btn.onclick=()=>{
-const circle=document.createElement("div");
-circle.style.position="fixed";
-circle.style.width="20px";
-circle.style.height="20px";
-circle.style.background="#00d4ff";
-circle.style.borderRadius="50%";
-circle.style.left=btn.getBoundingClientRect().left+"px";
-circle.style.top=btn.getBoundingClientRect().top+"px";
-
-document.body.appendChild(circle);
-
-circle.animate([
-{transform:'translate(0,0)'},
-{transform:'translate(300px,-300px)'}
-],{duration:800});
-
-setTimeout(()=>circle.remove(),800);
-};
-});
-
-/* SCROLL TOP */
-const scrollBtn=document.getElementById("scrollTop");
-
-window.onscroll=()=>{
-scrollBtn.style.display=window.scrollY>300?'block':'none';
-};
-
-scrollBtn.onclick=()=>{
-window.scrollTo({top:0,behavior:'smooth'});
-};
-
-/* SCROLL ANIMATION */
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(e=>{
-if(e.isIntersecting){
-e.target.style.opacity=1;
-e.target.style.transform='translateY(0)';
-}
-});
-});
-
-document.querySelectorAll(".product,.cat").forEach(el=>{
-el.style.opacity=0;
-el.style.transform='translateY(40px)';
-observer.observe(el);
-});
-
 </script>
 
 </body>
